@@ -4,29 +4,26 @@
 
 using namespace std;
 
-void afficher_combinaisons_binaires(int n, char str[] = {}, int size = 0)
+void binary(int n, char s[], int index)
 {
-    if (n == 0)
+    if (index == n)
     {
-        for (int i = 0; i < size; i++)
-        {
-            cout << str[i];
-        }
-        cout << endl;
+        cout << s << endl;
         return;
     }
-    char str0[size + 1];
-    char str1[size + 1];
-    strncpy(str0, str, size);
-    strncpy(str1, str, size);
-    str0[size] = '0';
-    str1[size] = '1';
-    afficher_combinaisons_binaires(n - 1, str0, size + 1);
-    afficher_combinaisons_binaires(n - 1, str1, size + 1);
+    s[index] = '0';
+    binary(n, s, index + 1);
+    s[index] = '1';
+    binary(n, s, index + 1);
 }
 
 int main()
 {
-    afficher_combinaisons_binaires(16);
+    int n;
+    cout << "taille : ";
+    cin >> n;
+    char s[n + 1];
+    s[n] = '\0';
+    binary(n, s, 0);
     return 0;
 }
