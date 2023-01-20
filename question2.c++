@@ -52,7 +52,7 @@ void binary(int n, char s[], int index, int taille, char minGrid[], int &minPion
                 if (s[i] == '1')
                     pion++;
             }
-            if (pion < minPion)
+            if (pion <= minPion)
             {
                 // enregistre le meilleur placement
                 minPion = pion;
